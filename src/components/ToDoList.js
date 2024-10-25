@@ -2,7 +2,7 @@ import React from "react";
 
 export function ToDoList({ items, onAdd, onDelete }) {
   return (
-    <div className="sticky top-[calc(68px)] z-10 textbar flex justify-between bg-black rounded-full pl-4 px-2 py-2 mx-4">
+    <div className="sticky top-[70px] z-10 textbar flex justify-between bg-black rounded-full pl-4 px-2 py-2 mt-2 mx-4">
       <input
         type="text"
         className="sticky placeholder:text-gray-200 text-white italic bg-transparent outline-none w-full p-2"
