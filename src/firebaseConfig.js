@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDJ_Akxh3n2jI4hrkaccE9uz4N7-RZJBwU",
+  apiKey: "",
   authDomain: "todo-app-f4f12.firebaseapp.com",
   projectId: "todo-app-f4f12",
   storageBucket: "todo-app-f4f12.appspot.com",
