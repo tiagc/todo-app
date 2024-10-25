@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+import { Header, Test } from "./components/Header";
+import { ToDoList } from "./components/ToDoList";
+import { ToDoItem } from "./components/ToDoItem";
+import "./index.css";
+
+const App = () => {
+  const [items, setItems] = useState([]);
+
+  const handleAddItem = () => {
+    const inputBox = document.getElementById("input-box");
+    const newItem = inputBox.value.trim();
+    if (newItem) {
+      setItems([...items, newItem]);
+      inputBox.value = "";
+    }
+  };
+
+  const handleDeleteItem = (index) => {
+    const updatedItems = items.filter((_, i) => i !== index);
+    setItems(updatedItems);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <ToDoList onAdd={handleAddItem} />
+      <ul className="max-w-screen-sm mx-auto space-y-4" id="list">
+        {items.map((item, index) => (
+          <ToDoItem
+            key={index}
+            item={item}
+            onDelete={() => handleDeleteItem(index)}
+          />
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
 export default App;
